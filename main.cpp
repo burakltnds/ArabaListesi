@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "Oto.h"
 #include "Arac.h"
 using namespace std;
@@ -91,7 +91,7 @@ public:
         }
         Node<T>* temp = head;
         while (temp) {
-            cout << temp->data << " -> ";
+            cout << temp->data->bilgileriYazdir() << " -> ";
             temp = temp->sonraki;
         }
         cout << "NULL" << endl;
@@ -100,19 +100,13 @@ public:
 
 int main()
 {
-	BagliList<string> b;
-	Oto o1(160, "5 Ileri Otomatik", "Dizel", "FIAT", "EGEA");
-	Oto o2(175, "6 Ileri Manuel", "Benzin", "BMW", "E30");
-	Oto o3(190, "6 Ileri Otomatik", "Elektrik", "TOGG", "T10X");
-	Oto o4(200, "6 Ileri Otomatik", "Elektrik", "TESLA", "MODEL Y");
-	Oto o5(180, "5 Ileri Manuel", "HYBRID", "TOYOTA", "COROLLA");
-	Oto o6(170, "6 Ileri Manuel", "Dizel", "PEUGEOT", "RIFTER");
-	b.basEkle(o1.bilgileriYazdir());
-	b.basEkle(o2.bilgileriYazdir());
-	b.sonEkle(o3.bilgileriYazdir());
-	b.sonEkle(o4.bilgileriYazdir());
-	b.arayaEkle(o5.bilgileriYazdir(), 1);
-	b.arayaEkle(o6.bilgileriYazdir(), 2);
+	BagliList<Oto*> b;
+	b.basEkle(new Oto(160, "5 Ileri Otomatik", "Dizel", "FIAT", "EGEA"));
+	b.basEkle(new Oto(175, "6 Ileri Manuel", "Benzin", "BMW", "E30"));
+	b.sonEkle(new Oto(190, "6 Ileri Otomatik", "Elektrik", "TOGG", "T10X"));
+	b.sonEkle(new Oto(200, "6 Ileri Otomatik", "Elektrik", "TESLA", "MODEL Y"));
+	b.arayaEkle(new Oto(180, "5 Ileri Manuel", "HYBRID", "TOYOTA", "COROLLA"), 1);
+	b.arayaEkle(new Oto(170, "6 Ileri Manuel", "Dizel", "PEUGEOT", "RIFTER"), 2);
 	b.display();
 
 }
